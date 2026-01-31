@@ -2,10 +2,6 @@
 
 **Official code for the paper to be presented at [ICLR 2026](https://iclr.cc/).**
 
-## Paper
-
-**GHOST: Hallucination-Inducing Image Generation for Multimodal LLMs**
-
 **Authors:** Aryan Yazdan Parast\*, Parsa Hosseini\*, Hesam Asadollahzadeh, Arshia Soltani Moakhar, Basim Azam, Soheil Feizi, Naveed Akhtar  
 *\*Equal contribution*
 
