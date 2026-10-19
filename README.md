@@ -200,7 +200,7 @@ python main.py \
 
 LLaVA uses the same attack flags with `--model_name llava` and `projector/models/deep_llava_bs=64_lr=0_0002_epochs=10_context_dim=4096_hidden_dim=1024.pt`.
 
-GLM-4.1V-Thinking, all ten classes (this is the submitted run):
+GLM-4.1V-Thinking, all ten classes:
 
 ```bash
 for target_object in boat clock knife carrot toilet vase bus suitcase bottle "traffic light"
