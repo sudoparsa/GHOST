@@ -79,16 +79,7 @@ COCO/images/val2017/
 
 Pass `--coco_dir /path/to/COCO/images` and `--data_path /path/to/COCO`.
 
-With `--sort_images True`, `main.py` loads `./clip_embeddings.pt`. That file is a dict:
-
-```python
-{
-    "clip_embeds": clip_embeds,  # float tensor [N, 1024], OpenCLIP ViT-H-14
-    "indices": indices,          # COCO image ids, same order as clip_embeds
-}
-```
-
-Build it once over COCO train images (the same resize the attack uses, 336×336) with `get_clip_model` and `get_clip_image_features` from `utils.py`, then save the dict above. Image ids must match `data.COCO` keys so the similarity sort can mask to images that do not contain the target object.
+With `--sort_images True`, `main.py` loads `./clip_embeddings.pt` from the working directory. The file used for the paper is [`clip_embeddings.pt`](https://huggingface.co/datasets/Arianyp/GHOST/blob/main/clip_embeddings.pt).
 
 The ten COCO classes used in the paper are:
 
