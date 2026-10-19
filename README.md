@@ -141,20 +141,14 @@ python train_projector.py \
     --coco_subset 1.0
 ```
 
-The epoch-10 checkpoints used by the attack are:
-
-```text
-projector/models/qwen_bs=32_lr=0.0002_epochs=10_context_dim=4096_hidden_dim=2048_coco_subset=1.0_epoch_10.pt
-projector/models/llava_bs=64_lr=0.0002_epochs=10_context_dim=4096_hidden_dim=1024_coco_subset=1.0_epoch_10.pt
-projector/models/glm4.1v-thinking_bs=32_lr=0.0002_epochs=10_context_dim=4096_hidden_dim=2048_coco_subset=1.0_epoch_10.pt
-```
+The Qwen and LLaVA checkpoints used for the released images are in [`projectors/`](https://huggingface.co/datasets/Arianyp/GHOST/tree/main/projectors). Put them in `projector/models/` and pass that path to `--projector_path`.
 
 Optional check after training (the classes used for mapper selection):
 
 ```bash
 python evals/validate_projector.py \
     --model_name qwen \
-    --projector_path projector/models/qwen_bs=32_lr=0.0002_epochs=10_context_dim=4096_hidden_dim=2048_coco_subset=1.0_epoch_10.pt \
+    --projector_path projector/models/qwen_bs=32_lr=0_0002_epochs=10_context_dim=4096_hidden_dim=2048.pt \
     --data_path /path/to/COCO \
     --cache_path cache \
     --target_objects vase,boat,bird,giraffe,car,remote
@@ -185,7 +179,7 @@ Qwen, one class:
 ```bash
 python main.py \
     --model_name qwen \
-    --projector_path projector/models/qwen_bs=32_lr=0.0002_epochs=10_context_dim=4096_hidden_dim=2048_coco_subset=1.0_epoch_10.pt \
+    --projector_path projector/models/qwen_bs=32_lr=0_0002_epochs=10_context_dim=4096_hidden_dim=2048.pt \
     --data_path /path/to/COCO \
     --cache_path cache \
     --target_object bottle \
@@ -204,7 +198,7 @@ python main.py \
     --seed 42
 ```
 
-LLaVA uses the same attack flags with `--model_name llava` and the LLaVA checkpoint above.
+LLaVA uses the same attack flags with `--model_name llava` and `projector/models/deep_llava_bs=64_lr=0_0002_epochs=10_context_dim=4096_hidden_dim=1024.pt`.
 
 GLM-4.1V-Thinking, all ten classes (this is the submitted run):
 
